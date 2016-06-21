@@ -1,0 +1,23 @@
+// Place all the styles related to the Notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#contents {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#content{
+  border: 1px solid;
+  padding: 10px;
+  background-color:#F0F6F0;
+}
+
+img{
+  width: 100%;
+}
+
+#content-header{
+  width: 100%;
+  background-color:#D0E0D0;
+}

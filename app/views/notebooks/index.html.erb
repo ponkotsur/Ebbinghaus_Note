@@ -1,0 +1,13 @@
+<div id='overlay'></div>
+<div class='contents' >
+  <h1>ノートブック一覧</h1>
+  <ul>
+    <% @notebooks.each do |notebook| %>
+      <li><%= link_to notebook.title,"notebooks/#{notebook.id}"  %></li>
+    <% end %>
+  </ul> 
+  <%= form_tag :action => "update" do %>
+  <%= submit_tag "更新", :id => "update_button" %>
+  <% end %>
+  <%= link_to "Today's Note!","/today" %>
+</div>

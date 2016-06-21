@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EbbinghausNote</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <div class='header-border'></div>
+    <div class='header-content'>
+      <h1>Ebbinghaus's Note</h1>
+      <h4>学んだこと、覚えてますか？</h4>
+    </div>
+    <div class='header-nav'>
+      <div class='todays-note'>今日の復習ノート</div>
+    </div>
+  </header>
+  <div class='main'>
+    <div class='main-content'>
+      <%= yield %>
+    </div>
+  </div>
+  <footer>
+    <div class='footer-border'></div>
+    <div class='footer-content'></div>
+    <div class='footer-border'></div>
+  </footer>
+</body>
+</html>

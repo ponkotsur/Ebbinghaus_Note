@@ -1,0 +1,37 @@
+// Place all the styles related to the Notebooks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{margin:0px;padding:0px;}
+
+.contents{
+    background-color: #F0F6F0;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contents h1{
+    padding-bottom: 10px;
+}
+
+.contents ul{
+    padding-bottom: 50px;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: #000;
+    filter:alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+}
+
+ul li{
+  list-style : none;
+}
