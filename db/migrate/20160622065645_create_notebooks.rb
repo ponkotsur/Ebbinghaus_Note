@@ -1,10 +1,10 @@
 class CreateNotebooks < ActiveRecord::Migration
   def change
     create_table :notebooks do |t|
+      t.string :guid
       t.string :title
-      t.integer :guid
+      t.string :published
 
-      t.timestamps null: false
     end
   end
 end

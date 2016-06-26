@@ -13,6 +13,7 @@ class NotebooksController < ApplicationController
   def update
     @evernote = EvernoteUtils.instance
     @notebooks = @evernote.getNotebooks
+    @enable_notes_guid = Array.new
     @notebooks.each do |notebook|
       p notebook
       @new_notebook = Notebook.where(guid: notebook.guid).first
@@ -26,6 +27,7 @@ class NotebooksController < ApplicationController
       p "guid:" + @new_notebook.guid
       @evernote.getNotes(@new_notebook.guid).each do |note|
         @new_note = Note.where(guid: note.guid).first
+        @enable_notes_guid.push(note.guid)
         if !@new_note || @new_note.updated != Time.at(note.updated.to_i / 1000).to_date
         # if !@new_note
           @new_note = Note.new
@@ -59,15 +61,26 @@ class NotebooksController < ApplicationController
             end
           end
 
-          xml = Nokogiri::XML(@new_note.content)
-          enmedia_nodes = xml.xpath('//en-media')
-          enmedia_nodes.each do |en_media|
-            p en_media
+          @html = Nokogiri::HTML(@new_note.content)
+          @enmedia_nodes = @html.xpath('//')
+          @enmedia_nodes.each do |en_media|
+            p "en-media:" + en_media.text
           end
           @new_note.save
         end    
       end
     end
+
+    if @enable_notes_guid.length > 0
+      @delete_sql = "not guid in("
+      @enable_notes_guid.each do |enable_note_guid|
+        @delete_sql = @delete_sql + "\"" + enable_note_guid + "\","
+      end
+      @delete_sql = @delete_sql[0..-2] + ")"
+      p @delete_sql
+      Note.where(@delete_sql).destroy_all
+    end
+
     redirect_to :action => "index"
   end
 end
