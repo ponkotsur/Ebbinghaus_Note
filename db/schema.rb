@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617015630) do
+ActiveRecord::Schema.define(version: 20160622070420) do
 
   create_table "notebooks", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.integer  "guid",       limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "guid",      limit: 255
+    t.string "title",     limit: 255
+    t.string "published", limit: 255
   end
 
   create_table "notes", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "content",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string  "guid",              limit: 255
+    t.string  "title",             limit: 255
+    t.text    "content",           limit: 65535
+    t.integer "contentLength",     limit: 4
+    t.date    "created"
+    t.date    "updated"
+    t.string  "active",            limit: 255
+    t.integer "updateSequenceNum", limit: 4
+    t.string  "notebookGuid",      limit: 255
+    t.integer "notebook_id",       limit: 4
   end
 
 end

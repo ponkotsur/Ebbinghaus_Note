@@ -102,7 +102,7 @@ class EvernoteUtils
 
     @extractedNotes = Array.new
 
-    @metadatas = @note_store.findNotesMetadata(@token, @filter, 0, 10,@spec)
+    @metadatas = @note_store.findNotesMetadata(@token, @filter, 0, 99999,@spec)
     @metadatas.notes.each do |note|
       @extractedNotes.push(searchNoteWithGuid(note.guid))
     end

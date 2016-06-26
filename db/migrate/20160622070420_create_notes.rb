@@ -12,7 +12,6 @@ class CreateNotes < ActiveRecord::Migration
       t.string :notebookGuid
       t.integer :notebook_id
 
-      t.timestamps null: false
     end
   end
 end

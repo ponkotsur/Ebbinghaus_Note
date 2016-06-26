@@ -61,11 +61,11 @@ class NotebooksController < ApplicationController
             end
           end
 
-          @html = Nokogiri::HTML(@new_note.content)
-          @enmedia_nodes = @html.xpath('//')
-          @enmedia_nodes.each do |en_media|
-            p "en-media:" + en_media.text
-          end
+          # @html = Nokogiri::HTML(@new_note.content)
+          # @enmedia_nodes = @html.xpath('//')
+          # @enmedia_nodes.each do |en_media|
+          #   p "en-media:" + en_media.text
+          # end
           @new_note.save
         end    
       end
