@@ -14,17 +14,24 @@
  *= require_self
  */
 
+*{
+  font-size: 16px;
+}
+
 body{
   color: white;
   width: 100%;
   margin: 0px;
-  background-color: #588983;
+  background-color: #eeeeee;
 }
 
 header{
   margin: 0px;
-  float: left;
   width: 100%;
+  height: 15vh;
+  position: fixed;
+  z-index: 1;
+  opacity: 1;
 }
 
 header div{
@@ -32,14 +39,18 @@ header div{
   float: left;
 }
 
-.header-border,.header-nav{
-  background-color: #45635F;
-  height: 25px;
+.header-border{
+  background-color: #23466e;
+  height: 10%;
 }
 .header-content{
-  background-color: #48AB9F;
+  background-color: #4d639f;
+  height: 60%;
 }
 
+.header-content h1{
+  font-size: 2em;
+}
 .header-content h4{
   padding-left: 20px;
 }
@@ -49,47 +60,75 @@ header div{
 }
 
 .main{
-  height: 100%;
+  margin-top: 15vh;
   width: 100%;
   color: black;
   float: left;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.nav-border{
+  width: 100%;
+  height : 30%;
+  background-color: #23466e;
+}
+
+.nav{
+  width: 75%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav div{
+  color: white;
+  border-radius: 5px;
+  font-size: 2vw;
+  text-align: center;
+}
+
+.nav-item{
+  background-color: rgba(255,255,255,0.5);
+}
+
+.nav-element{
+  flex-basis: 50px;
+  background-color: rgba(0,0,0,0);
+}
+
+.nav-element p{
+  text-aling: center;
+  color:white;
+  font-size: 1vw;
 }
 
 .main-content{
-  margin: 0 auto;
-  background-color: white;
-  height: 100%;
-  width: 95%;
-  background-color: #588983;
+  background-color: rgba(0,0,0,0);
+  width: 100%;
 }
 
-.left-content{
-  margin: 0 auto;
+.side-content{
   float: left;
   width: 15%;
-  height: 100%;
-  background-color: #45635F;
-}
-
-.right-content{
-  float: left;
-  width: 75%;
-  background-color: #72ddf7;
+  height: 50vh;
+  background-color: rgba(150,150,205,0.8);
 }
 
 .footer-content{
-  height: 50px;
-  background-color: #48AB9F;
+  height: 80%;
+  background-color: #4d639f;
 }
 
 .footer-border{
-  height: 25px;
-  background-color: #45635F;
+  height: 10%;
+  background-color: #23466e;
 }
 
 footer{
-  float: left;
   width: 100%;
+  height: 10vh;
+  float: left;
 }
 
 .todays-note{

@@ -10,11 +10,44 @@
   <header>
     <div class='header-border'></div>
     <div class='header-content'>
-      <h1>Ebbinghaus's Note</h1>
-      <h4>学んだこと、覚えてますか？</h4>
+      <h1>Ebbinghaus' Note</h1>
+      <!-- <h4>学んだこと、覚えてますか？</h4> -->
     </div>
-    <div class='header-nav'>
-      <div class='todays-note'>今日の復習ノート</div>
+    <div class='nav-border'>
+      <div class='nav'>
+        <div class='nav-item'>
+          <a href="<%= root_path %>">
+            <div>ノートブック一覧</div>
+          </a>
+        </div>
+        <% if params[:notebook_id] %>
+          <div class='nav-element'>
+            <p>＞</p>
+          </div>
+          <div class='nav-item'>
+            <a href="<%= notebook_path(params[:notebook_id]) %>">
+              <div><%= @notebook.title %></div>
+            </a>
+          </div>
+          <div class='nav-element'>
+            <p>＞</p>
+          </div>
+          <div class='nav-item'>
+            <a href="<%= notebook_note_path %>">
+              <div><%= @note.title %></div>
+            </a>
+          </div>
+          <% elsif params[:id] %>
+          <div class='nav-element'>
+            <p>＞</p>
+          </div>
+          <div class='nav-item'>
+            <a href="<%= p notebook_path %>">
+              <div><%= @notebook.title %></div>
+            </a>
+          </div>
+        <% end %>
+      </div>
     </div>
   </header>
   <div class='main'>

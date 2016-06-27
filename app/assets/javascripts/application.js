@@ -19,4 +19,13 @@ $(function() {
   $("#update_button").click(function () {
     $("#overlay").fadeIn();
   });
-});
+
+  $(window).scroll(function(){
+    var st = $(window).scrollTop();
+    if (st > 50)  {
+      $("header").css('opacity','0.7');
+    }  else  {
+      $("header").css('opacity','1.0');
+    }
+  };
+)};

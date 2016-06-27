@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @notebook = Notebook.find(params[:notebook_id])
     @note = Note.find(params[:id])
   end
 

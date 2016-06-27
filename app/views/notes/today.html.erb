@@ -1,13 +1,8 @@
-<% if params[:id] %>
-  <%= link_to "back","/notebooks/#{params[:id]}" %>
-<% else %>
-  <%= link_to "back","/notebooks" %>
-<% end %>
 <% if @contents %>
-  <div id="contents">
+  <div class="contents">
     <% @contents.each_with_index do |content,idx| %>
-      <div id="content">
-        <div id="content-header">
+      <div class="content">
+        <div class="content-header">
           <h1><%= content.title %></h1>
           <p>作成日:<%= content.created %>更新日:<%= content.updated %></p>
         </div>

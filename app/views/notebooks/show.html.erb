@@ -1,6 +1,7 @@
-<h1>ノート一覧</h1>
-<% @notes.each do |note| %>
-  <li><%= link_to note.title,"#{@notebook.id}/notes/#{note.id}" %></li>
-<% end %>
-<%= link_to "Today's Note!","/today/#{@notebook.id}" %>
-<%= link_to "back","/notebooks" %>
+<div class='contents'>
+  <h1>ノート一覧</h1>
+  <% @notes.each do |note| %>
+    <li><%= link_to note.title,"#{@notebook.id}/notes/#{note.id}" %></li>
+  <% end %>
+  <%= link_to "Today's Note!","/today/#{@notebook.id}" %>
+</div>
