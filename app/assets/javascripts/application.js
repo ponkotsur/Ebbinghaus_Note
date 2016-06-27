@@ -15,17 +15,27 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-  $("#update_button").click(function () {
-    $("#overlay").fadeIn();
-  });
+$(function(){
 
-  $(window).scroll(function(){
-    var st = $(window).scrollTop();
-    if (st > 50)  {
-      $("header").css('opacity','0.7');
-    }  else  {
-      $("header").css('opacity','1.0');
-    }
-  };
-)};
+  $(window).ready(function(){
+    $(".header-content").text("bbb");
+  });  
+
+  // $("#update_button").click( function() {
+  //     $("#overlay").fadeIn();
+  // });
+
+  // $(window).load(function(){
+  //   $(".header-content").text("bbb");
+  // });
+
+  // $(window).scroll( function(){    
+  //     var st = $(window).scrollTop();
+  //     $(".scroll_pos").text("縦位置:");
+  //     if (st > 50)  {
+  //       $("header").css('opacity','0.7');
+  //     }  else  {
+  //       $("header").css('opacity','1.0');
+  //     }
+  // });
+};
