@@ -12,9 +12,13 @@ class EvernoteUtils
   #初期化　トークン取得
   def initialize
     puts("NoteStore取得")
-    @token = "S=s1:U=9290b:E=15cc2c3677a:C=1556b1237e0:P=1cd:A=en-devtoken:V=2:H=986913b9d89b57beb8eac5d2c59eb4b3"
+    # sandbox
+    # @token = "S=s1:U=9290b:E=15cc2c3677a:C=1556b1237e0:P=1cd:A=en-devtoken:V=2:H=986913b9d89b57beb8eac5d2c59eb4b3"
+    # product
+    @token = "S=s725:U=889c42c:E=15cedbe74e7:C=155960d4520:P=1cd:A=en-devtoken:V=2:H=4b97c0d4a99cf24e61f97bd790d4bf28"
     @username = "ponkotsur"
-    @client = EvernoteOAuth::Client.new(:token => @token, :sandbox => true)
+    @client = EvernoteOAuth::Client.new(:token => @token, :sandbox => false)
+    # @client = EvernoteOAuth::Client.new(:token => @token)
     @note_store = @client.note_store
     @user_store = @client.user_store
   end

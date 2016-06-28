@@ -71,6 +71,14 @@ class NotebooksController < ApplicationController
       end
     end
 
+    @delete_sql = "not guid in("
+    @notebooks.each do |notebook|
+      @delete_sql = @delete_sql + "\"" + notebook.guid.to_s + "\","
+    end
+    @delete_sql = @delete_sql[0..-2] + ")"
+    p @delete_sql
+    Notebook.where(@delete_sql).destroy_all    
+
     if @enable_notes_guid.length > 0
       @delete_sql = "not guid in("
       @enable_notes_guid.each do |enable_note_guid|
