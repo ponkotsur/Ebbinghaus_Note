@@ -30,7 +30,9 @@ class NotebooksController < ApplicationController
         @enable_notes_guid.push(note.guid)
         if !@new_note || @new_note.updated != Time.at(note.updated.to_i / 1000).to_date
         # if !@new_note
-          @new_note = Note.new
+          if !@new_note
+            @new_note = Note.new
+          end
           @new_note.notebook_id = @new_notebook.id
           @new_note.title = note.title
           @new_note.content = note.content
@@ -44,19 +46,25 @@ class NotebooksController < ApplicationController
 
           if note.resources
             note.resources.each do |resource|
-              @ext = ""
+              @url = ""
               case resource.mime
                 when "image/gif" then
-                  @ext = ".gif"
+                  @url = "<image src=\"#{@evernote.getResourceURL(resource.guid)}.gif\"><br>"
                 when "image/jpeg" then
-                  @ext = ".jpg"
+                  @url = "<image src=\"#{@evernote.getResourceURL(resource.guid)}.jpg\"><br>"
                 when "image/png" then
-                  @ext = ".png"
-                when "application/vnd.evernote.ink" then
-                  @ext = ".ink"
+                  @url = "<image src=\"#{@evernote.getResourceURL(resource.guid)}.png\"><br>"
+                # when "application/vnd.evernote.ink" then
+                #   @ext = ".ink"
+                when "application/pdf" then
+                  # @url = "<object data=\"#{@evernote.getResourceURL(resource.guid)}\" type=\"application/pdf\"></object><br>"
+                  @url = "<object data=\"#{@evernote.getResourceURL(resource.guid)}\" type=\"application/pdf\" scrolling=\"no\"></object><br>"
+                  # @url += "<embed src=\"#{@evernote.getResourceURL(resource.guid)}\" type=\"application/pdf\" width="" height=""></embed><br>"
+                  # @url = "<iframe src=\"#{@evernote.getResourceURL(resource.guid)}\" width=\"100%\" height=\"100%\" ></iframe>"
+                  # @url = "<iframe src=\"#{@evernote.getResourceURL(resource.guid)}.pdf\" style=\"border:0\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\"></iframe>"
+                  # @url = "<iframe src=\"file=#{@evernote.getResourceURL(resource.guid)}.pdf\" style=\"border:0\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\"></iframe>"
               end
               p resource.mime
-              @url = "<image src=\"#{@evernote.getResourceURL(resource.guid) + @ext}\"><br>"
               @new_note.content += @url
             end
           end

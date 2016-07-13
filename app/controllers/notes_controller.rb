@@ -14,6 +14,8 @@ class NotesController < ApplicationController
     @dates_array = Array.new
     @dates_array.push(Date.today)
     @dates_array.push(Date.today - 1)
+    @dates_array.push(Date.today - 2)
+    @dates_array.push(Date.today - 3)
     @dates_array.push(Date.today - 7)
     @dates_array.push(Date.today - 14)
     @dates_array.push(Date.today - 31)

@@ -50,3 +50,5 @@ gem 'evernote_oauth'
 gem 'coffee-script-source', '1.8.0'
 
 gem 'clockwork'
+
+gem 'pdfjs_rails'
