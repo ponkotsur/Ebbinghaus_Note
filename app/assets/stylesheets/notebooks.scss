@@ -20,4 +20,53 @@
 
 ul li{
   list-style : none;
+  background-color: blue; 
+}
+
+.notebooks-title{
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & a{
+        border: 5px solid;
+        border-radius: 10px;
+        width: 20%;
+        text-decoration: none;
+        & .notebook-header{
+            background-color: #4d639f;
+            color:white;
+            text-align: center;            
+        }
+        & .notebook-content{
+            background-color: #eeeeee;
+        }        
+    }
+}
+
+.notes{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    & a{
+        text-decoration: none;
+        color: black;
+        & .note{
+            border-radius: 10px;
+            width: 500px;
+            margin: 5px 0px 5px 0px;
+            border: 5px solid;
+            border-color: #4d639f;
+            & .note-header{
+                background-color: #4d639f;
+                color:white;
+                text-align: center;    
+            }
+            & .note-content{
+                background-color: #eeeeee;
+            }
+        }
+    }
 }

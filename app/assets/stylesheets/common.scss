@@ -1,6 +1,16 @@
 .contents{
   margin: 0 auto;
   min-height: 75vh;
-  width: 98%;
-  background-color: rgba(255,255,255,0.1)
+  width: 90%;
+  background-color: rgba(255,255,255,0.3)
+}
+
+.todays-note{
+  background-color: rgba(50,50,150,1);
+  border-radius: 10px;
+  text-align: center;
+  & a{
+    color: white;
+    text-decoration: none;
+  }
 }

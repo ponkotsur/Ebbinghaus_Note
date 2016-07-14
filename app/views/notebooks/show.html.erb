@@ -1,7 +1,26 @@
 <div class='contents'>
   <h1>ノート一覧</h1>
-  <% @notes.each do |note| %>
-    <li><%= link_to note.title,"#{@notebook.id}/notes/#{note.id}" %></li>
-  <% end %>
-  <%= link_to "Today's Note!","/today/#{@notebook.id}" %>
+  <div class='notes'>
+    <% @notes.each do |note| %>
+        <a href="<%= @notebook.id %>/notes/<%= note.id %>">
+          <div class='note'>
+            <div class='note-header'>
+              <p><%= note.title %></p>
+              <p>作成日:<%= note.created %></p>
+              <p>更新日:<%= note.updated %></p>
+            </div>
+            <div class='note-content'>
+              <p><%== note.content %></p>
+            </div>
+          </div>
+        </a>
+    <% end %>
+  </div>
+  <div class="todays-note">
+    <a href="/today">
+      <div>
+          本日の復習ノートはコチラ!!
+      </div>
+    </a>
+  </div>
 </div>

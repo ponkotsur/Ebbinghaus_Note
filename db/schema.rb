@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622070420) do
+ActiveRecord::Schema.define(version: 20160714091528) do
 
   create_table "notebooks", force: :cascade do |t|
     t.string "guid",      limit: 255
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160622070420) do
   create_table "notes", force: :cascade do |t|
     t.string  "guid",              limit: 255
     t.string  "title",             limit: 255
-    t.text    "content",           limit: 65535
+    t.text    "content",           limit: 4294967295
     t.integer "contentLength",     limit: 4
     t.date    "created"
     t.date    "updated"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20160622070420) do
     t.integer "updateSequenceNum", limit: 4
     t.string  "notebookGuid",      limit: 255
     t.integer "notebook_id",       limit: 4
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "guid",              limit: 255
+    t.string  "name",              limit: 255
+    t.string  "parentGuid",        limit: 255
+    t.integer "updateSequenceNum", limit: 4
   end
 
 end

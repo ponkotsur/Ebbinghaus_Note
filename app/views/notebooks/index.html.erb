@@ -1,13 +1,37 @@
 <div id='overlay'></div>
 <div class='contents'>
   <h1>ノートブック一覧</h1>
-  <ul>
+  <!-- <ul> -->
+  <div class="notebooks-title">
     <% @notebooks.each do |notebook| %>
-      <li><%= link_to notebook.title,"notebooks/#{notebook.id}"  %></li>
+      <a href="notebooks/<%= notebook.id %>">
+        <div class='notebook' >
+          <div class="notebook-header">
+            <p><%= notebook.title %></p>
+            <p>ノート数:<%= notebook.notes.count %></p>
+          </div>
+          <div class="notebook-content">
+            <% display_amount = 10 %>
+            <% if notebook.notes.count < display_amount %>
+              <% display_amount = notebook.notes.count %>
+            <% end %>
+            <% display_contents = notebook.notes.limit(display_amount) %>
+            <% display_contents.each do |display_content| %>
+              <p><%= display_content.title.truncate(12, omission: '...') %></p>
+            <% end %>
+          </div>
+        </div>
+      </a>
     <% end %>
-  </ul> 
+  </div>
+  <div class="todays-note">
+    <a href="/today">
+      <div>
+          本日の復習ノートはコチラ!!
+      </div>
+    </a>
+  </div>
   <%= form_tag :action => "update" do %>
   <%= submit_tag "更新", :id => "update_button" %>
   <% end %>
-  <%= link_to "Today's Note!","/today" %>
 </div>

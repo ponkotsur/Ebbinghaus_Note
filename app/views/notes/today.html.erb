@@ -1,14 +1,18 @@
 <% if @contents %>
-  <div class="contents">
+  <div class="todays-contents">
+    <% save_date = nil %>
     <% @contents.each_with_index do |content,idx| %>
-      <div class="content">
-        <div class="content-header">
-          <h1><%= content.title %></h1>
-          <p>作成日:<%= content.created %>更新日:<%= content.updated %></p>
+        <% if save_date != content.updated %>
+          <h1 class='todays-date'><%= content.updated.strftime("%Y年 %m月 %d日") %></h1>
+          <% save_date = content.updated %>
+        <% end %>
+        <div class="todays-content">
+          <div class="todays-content-header">
+            <h1><%= content.title %></h1><br>
+            <p>作成日:<%= content.created %>更新日:<%= content.updated %></p>
+          </div>
+          <p><%== content.content %></p>
         </div>
-        <p><%== content.content %></p>
-      </div>
-      <br>
     <% end %>
   </div>
 <% else %>

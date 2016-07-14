@@ -14,10 +14,30 @@
 }
 
 img{
-  width: 100%;
+  max-width: 80%;
 }
 
 #content-header{
   width: 100%;
   background-color:#D0E0D0;
+}
+
+.todays-contents{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 50%;
+  justify-content: space-around;
+}
+
+.todays-content{
+  width: 48%;
+  background-color: rgba(245,245,245,1);
+  border: 5px solid;
+  margin: 10px 0px 10px 0px;
+}
+
+.todays-date{
+  width: 100%;
+  font-size: 3em;
 }
